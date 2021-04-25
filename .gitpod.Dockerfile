@@ -6,34 +6,60 @@ USER root
 RUN apt-get update \
  && apt-get install -y \
   apt-utils \
-  neofetch \
-  neovim \
+  aria2 \
+# c++ stuff \
+  clang-format \
+  cppcheck \
+  doctest-dev \
+  kcachegrind-converters \
+  kcachegrind \
+  lcov \
+  libbenchmark-dev \
+  libboost-all-dev \
+  libfmt-dev \
+  libjsoncpp-dev \
+  libopenblas-dev \
+  librange-v3-dev \
+  libspdlog-dev \
+  ninja-build \
+# latex stuff \
+  chktex \
+  latexdiff \
+  latexmk \
+  texlive-latex-extra \
+  texlive-science \
+  texlive-xetex \
+  texlive \
+# utilities (not ripgrep, gh) \
   asciinema \
-  tmux \
-  vifm \
+  bat \
+  byobu \
+  curl \
+  elinks \
+  fd-find \
+  fish \
+  mdp \
+  ncdu \
+  neofetch \
+  patat \
+  pkg-config \
+  ranger \
   w3m \
+# just for fun (not cmatrix) \
   cowsay \
   figlet \
   fortune \
   toilet \
   tty-clock \
-  build-essential \
-  clang \
+# eda stuff \
   bison \
+  build-essential \
   flex \
   gawk \
-  doctest-dev \
-  libboost-all-dev \
-  libreadline-dev \
-  libffi-dev \
-  libftdi-dev \
-  libscotchmetis-dev \
-  libeigen3-dev \
   tcl-dev \
+  xdot \
   graphviz \
   mercurial \
-  xdot \
-  pkg-config \
   qt5-default \
   gtkwave \
   yosys \
@@ -42,7 +68,11 @@ RUN apt-get update \
   arachne-pnr \
   fpga-icestorm \
   verilator \
-  wget
+  libeigen3-dev \
+  libffi-dev \
+  libftdi-dev \
+  libscotchmetis-dev \
+  libreadline-dev
 
 RUN mkdir -p /workspace/data \
     && chown -R gitpod:gitpod /workspace/data
@@ -60,26 +90,38 @@ RUN /opt/conda/bin/conda config --set always_yes yes --set changeps1 no \
     && /opt/conda/bin/conda update -q conda \
     && /opt/conda/bin/conda info -a
 
-RUN /opt/conda/bin/conda install -y \
-    ninja
-
 RUN /opt/conda/bin/conda install -y -c conda-forge \
-    fmt \
-    spdlog \
-    benchmark \
-    openblas \
-    spdlog \
+    pandoc-crossref \
+    pandoc \
     xtensor-fftw \
     xtensor-blas \
-    xtensor \
-    cppcheck
+    xtensor 
 
 RUN /opt/conda/bin/pip install \
+    codecov \
+    coverage \
+    coveralls \
+    cppclean \
+    cvxpy \
     jupyter \
-    pyfda \
+    matplotlib \
+    networkx \
+    numexpr \
+    numpy \
+    scipy \
+    flake8 \
+    mypy \
+    pre-commit \
+    pyprof2calltree \
+    pyqt5 \
+    pytest-benchmark \
+    pytest-cov \
+    pytest \
+    yapf \
     cocotb \
     myhdl \
-    networkx
+    pyfda \
+    lolcat
 
 RUN chown -R gitpod:gitpod /opt/conda \
     && chmod -R 777 /opt/conda \
