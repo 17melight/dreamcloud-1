@@ -66,8 +66,8 @@ RUN apt-get update \
   iverilog \
   berkeley-abc \
   arachne-pnr \
-  icestorm \
-  nextpnr\
+  #icestorm \
+  #nextpnr\
   verilator \
   libeigen3-dev \
   libffi-dev \
