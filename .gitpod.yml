@@ -11,6 +11,10 @@ tasks:
       ./envconfig.sh
   - command: >
       export CMAKE_PREFIX=/opt/conda
+  - command: >
+      export PATH=$PATH:/workspace/dreamcloud-1/savebin
+  - command: >
+      export PATH=$PATH:/workspace/dreamcloud-1/saveshare
 
 vscode:
   extensions:
